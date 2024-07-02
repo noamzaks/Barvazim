@@ -1,0 +1,13 @@
+#!/bin/sh
+
+BARVAZIM_ROOT="$(dirname "$0")"
+BARVAZIM_BINARY="$BARVAZIM_ROOT/.venv/bin/barvazim"
+
+if [ -e $BARVAZIM_BINARY ]
+then
+    $BARVAZIM_BINARY $@
+else
+    echo "The Barvazim binary was not found."
+    echo "Please run \`rye sync\` inside $(realpath $BARVAZIM_ROOT)."
+    exit -1
+fi
